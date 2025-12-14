@@ -1,0 +1,87 @@
+:root{
+  --bg: #FEFCFF;
+  --light: #F4F4F6;
+  --muted: #868893;
+  --text: #0b0b0b;
+  --card-radius: 12px;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:Inter}
+.topbar{
+  display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #eaeaea;background:transparent;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.app-icon{width:28px;height:28px}
+.brand-title{font-weight:600}
+.controls{display:flex;align-items:center;gap:12px}
+
+.search{position:relative}
+.search input{
+  width:320px;padding:12px 44px 12px 14px;border-radius:10px;border:1px solid #eee;background:var(--light);
+  outline:none;font-size:14px
+}
+.search button{
+  position:absolute;right:6px;top:6px;border:0;background:transparent;padding:6px;cursor:pointer
+}
+.icon-btn{position:relative;border:0;background:transparent;padding:6px;cursor:pointer}
+.icon-btn img{width:20px;height:20px}
+.icon-btn .tooltip{
+  position:absolute;bottom:-28px;left:50%;transform:translateX(-50%);background:#111;color:#fff;padding:6px 8px;border-radius:6px;font-size:12px;opacity:0;pointer-events:none;transition:opacity .15s}
+.icon-btn:hover .tooltip{opacity:1}
+
+.layout{
+  display:flex;gap:24px;padding:34px;align-items:flex-start;
+}
+.left-panel{flex:1;min-width:0}
+.right-panel{width:320px;padding:20px;border-radius:var(--card-radius);background:var(--light)}
+.card{background:white;border-radius:var(--card-radius);padding:18px;margin-bottom:18px;box-shadow:0 1px 0 rgba(0,0,0,0.02)}
+.location-header{font-size:28px;font-weight:700;margin-bottom:18px}
+.main-weather{display:flex;align-items:center;gap:24px;min-height:120px}
+.big-temp{font-size:72px;font-weight:800}
+.big-icon img{width:84px;height:84px}
+.small-desc{color:var(--muted)}
+
+.forecast-list{display:flex;gap:12px;align-items:center;padding-top:12px}
+.forecast-item{width:84px;background:var(--light);border-radius:10px;padding:10px;text-align:center}
+.forecast-item img{width:48px;height:48px}
+.forecast-item .day{font-weight:600;margin-bottom:6px}
+.forecast .card h3{margin:0 0 6px 0;color:var(--muted)}
+
+.info-row{display:flex;gap:12px;align-items:center;margin-bottom:14px}
+.info-row img{width:28px;height:28px}
+.muted{color:var(--muted);font-size:13px}
+.big-value{font-weight:700;font-size:20px}
+
+.cities-card h4{margin:0 0 8px 0}
+.cities-list{list-style:none;padding:0;margin:0 0 8px 0;display:flex;flex-direction:column;gap:8px}
+.cities-list li{display:flex;justify-content:space-between;align-items:center;padding:8px;border-radius:8px;background:var(--light)}
+.cities-list button{border:0;background:transparent;cursor:pointer;color:var(--muted)}
+
+.add-city{display:flex;gap:8px;align-items:center;margin-top:8px}
+.add-city input{flex:1;padding:8px;border-radius:8px;border:1px solid #eee;background:white}
+.add-city button{padding:8px 10px;border-radius:8px;border:0;background:#2b7cff;color:white;cursor:pointer}
+
+.autocomplete{position:absolute;left:0;right:0;top:44px;background:white;border-radius:8px;box-shadow:0 8px 24px rgba(0,0,0,0.06);max-height:220px;overflow:auto;z-index:20;display:none}
+.autocomplete .item{padding:8px 12px;cursor:pointer}
+.autocomplete .item:hover{background:#f1f1f1}
+.error{color:#c0392b;font-size:13px;margin-top:6px}
+
+/* модалка */
+.modal{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.35)}
+.modal.hidden{display:none}
+.modal-card{background:white;padding:22px;border-radius:12px;max-width:420px;text-align:center}
+.modal-card button{margin:8px;padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+
+@media (max-width:900px){
+  .layout{flex-direction:column;padding:18px}
+  .right-panel{width:100%}
+  .search input{width:200px}
+  .big-temp{font-size:48px}
+  .big-icon img{width:64px;height:64px}
+}
+@media (max-width:520px){
+  .search input{width:140px}
+  .brand-title{display:none}
+}

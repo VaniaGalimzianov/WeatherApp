@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Weather App — ТЗ</title>
+
+  <!-- Inter font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <!-- Иконка приложения: img/day.svg -->
+      <img src="img/day.svg" alt="app" class="app-icon" />
+      <span class="brand-title">Weather App</span>
+    </div>
+
+    <div class="controls">
+      <div class="search">
+        <input id="searchInput" placeholder="Введите местоположение" autocomplete="off" />
+        <button id="searchBtn" title="Найти"><img src="img/search.svg" alt="search" /></button>
+        <div id="autocomplete" class="autocomplete"></div>
+      </div>
+
+      <button id="refreshBtn" class="icon-btn" title="Обновить данные">
+        <img src="img/update.svg" alt="update" />
+        <span class="tooltip">Обновить данные</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="left-panel">
+      <div id="locationHeader" class="location-header">...загрузка</div>
+
+      <div class="main-weather card" id="mainWeather">
+        <!-- Заполняется JS: большая температура + большая иконка -->
+        <div class="big-temp" id="bigTemp">—</div>
+        <div class="big-icon" id="bigIcon"><img src="img/weather.svg" alt="weather" /></div>
+        <div class="small-desc" id="smallDesc"></div>
+      </div>
+
+      <div class="forecast card" id="forecast">
+        <h3>Прогноз на неделю</h3>
+        <div id="forecastList" class="forecast-list"></div>
+      </div>
+    </section>
+
+    <aside class="right-panel card" id="rightPanel">
+      <div class="info-row">
+        <img src="img/thermometer 1.svg" alt="therm" />
+        <div>
+          <div class="muted">Ощущается как</div>
+          <div id="feelsLike" class="big-value">—</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <img src="img/wind.svg" alt="wind" />
+        <div>
+          <div class="muted">Ветер</div>
+          <div id="wind" class="big-value">—</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <img src="img/moisture.svg" alt="moisture" />
+        <div>
+          <div class="muted">Влажность</div>
+          <div id="humidity" class="big-value">—</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <img src="img/sunrise.svg" alt="sunrise" />
+        <div>
+          <div class="muted">Восход</div>
+          <div id="sunrise" class="big-value">—</div>
+        </div>
+      </div>
+
+      <div class="info-row">
+        <img src="img/sunset-fill.svg" alt="sunset" />
+        <div>
+          <div class="muted">Заход</div>
+          <div id="sunset" class="big-value">—</div>
+        </div>
+      </div>
+
+      <hr />
+
+      <div class="cities-card">
+        <h4>Города</h4>
+        <ul id="citiesList" class="cities-list"></ul>
+
+        <form id="addCityForm" class="add-city">
+          <input id="addCityInput" placeholder="Добавить город" autocomplete="off"/>
+          <button type="submit">Добавить</button>
+          <div id="addAutocomplete" class="autocomplete"></div>
+          <div id="addCityError" class="error"></div>
+        </form>
+      </div>
+    </aside>
+  </main>
+
+  <!-- модальное сообщение (при отказе гео) -->
+  <div id="geoModal" class="modal hidden">
+    <div class="modal-card">
+      <h3>Разрешите геолокацию</h3>
+      <p>Чтобы показать погоду в текущем местоположении, разрешите доступ к геопозиции. Или введите город вручную.</p>
+      <button id="geoRetry">Попробовать снова</button>
+      <button id="geoManual">Ввести город вручную</button>
+    </div>
+  </div>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
