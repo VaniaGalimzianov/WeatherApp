@@ -13,7 +13,7 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-famil
   display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid #eaeaea;background:transparent;
 }
 .brand{display:flex;align-items:center;gap:12px}
-.app-icon{width:28px;height:28px}
+.app-icon{width:50px;height:50px}
 .brand-title{font-weight:600}
 .controls{display:flex;align-items:center;gap:12px}
 
@@ -25,6 +25,8 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-famil
 .search button{
   position:absolute;right:6px;top:6px;border:0;background:transparent;padding:6px;cursor:pointer
 }
+#searchBtn img{width:20px;height:20px}
+
 .icon-btn{position:relative;border:0;background:transparent;padding:6px;cursor:pointer}
 .icon-btn img{width:20px;height:20px}
 .icon-btn .tooltip{
@@ -39,12 +41,16 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-famil
 .card{background:white;border-radius:var(--card-radius);padding:18px;margin-bottom:18px;box-shadow:0 1px 0 rgba(0,0,0,0.02)}
 .location-header{font-size:28px;font-weight:700;margin-bottom:18px}
 .main-weather{display:flex;align-items:center;gap:24px;min-height:120px}
-.big-temp{font-size:72px;font-weight:800}
+.big-temp{font-size:80px;font-weight:800}
 .big-icon img{width:84px;height:84px}
 .small-desc{color:var(--muted)}
 
-.forecast-list{display:flex;gap:12px;align-items:center;padding-top:12px}
-.forecast-item{width:84px;background:var(--light);border-radius:10px;padding:10px;text-align:center}
+.forecast{width:100%;overflow-x:auto}
+/* .forecast-scroll{overflow-x:auto;width:100%}
+.forecast-scroll::-webkit-scrollbar{height:6px}
+.forecast-scroll::-webkit-scrollbar-thumb{background:#ddd;border-radius:4px} */
+.forecast-list{display:flex;gap:12px;padding-top:12px;overflow-x:auto;white-space:nowrap}
+.forecast-item{flex:0 0 110px;height:140px;background:var(--light);border-radius:12px;padding:12px 8px;text-align:center;display:flex;flex-direction:column;justify-content:space-between;align-items:center}
 .forecast-item img{width:48px;height:48px}
 .forecast-item .day{font-weight:600;margin-bottom:6px}
 .forecast .card h3{margin:0 0 6px 0;color:var(--muted)}
@@ -80,8 +86,10 @@ html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-famil
   .search input{width:200px}
   .big-temp{font-size:48px}
   .big-icon img{width:64px;height:64px}
+  .forecast{width:100%;overflow: hidden;}
 }
 @media (max-width:520px){
   .search input{width:140px}
   .brand-title{display:none}
+  .forecast-item{height:128px}
 }
